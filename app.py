@@ -6,6 +6,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from werkzeug.utils import secure_filename
+import uvicorn
 
 from utils.file_helpers import allowed_file, get_file_extension
 from utils.processors import PDFProcessor, PPTXProcessor
@@ -216,6 +217,4 @@ async def general_exception_handler(request: Request, exc: Exception):
 
 
 if __name__ == "__main__":
-    import uvicorn
-
     uvicorn.run(app, host="localhost", port=8999)
